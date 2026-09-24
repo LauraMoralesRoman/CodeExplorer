@@ -1,7 +1,15 @@
-#include <stdio.h>
+#include "raylib.h"
 
 int main(int argc, char** argv)
 {
-    printf("Hello there\n");
-    fprintf(stdout, "Kekosaurio de funcionamiento");
+    InitWindow(800, 600, "Code Explorer");
+    SetTargetFPS(60);
+
+    while (!WindowShouldClose())
+    {
+        BeginDrawing();
+        EndDrawing();
+    }
+
+    CloseWindow();
 }

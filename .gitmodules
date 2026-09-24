@@ -1,3 +1,6 @@
 [submodule "vendor/raylib"]
 	path = vendor/raylib
 	url = https://github.com/raysan5/raylib/
+[submodule "vendor/cunity"]
+	path = vendor/cunity
+	url = https://gitlab.com/cunity/cunit.git

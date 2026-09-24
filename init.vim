@@ -32,11 +32,15 @@ command! Build AsyncRun
 			\ --target code-explorer
 			\ -- -j10
 
+command! Run !
+			\ ./build/code-explorer
+
 lua << EOF
 	function init_menu()
 		return {
 			{ name = 'Build', cmd = 'Build' },
 			{ name = 'Run CMake', cmd = 'CMake' },
+			{ name = 'Run', cmd = 'Run' },
 		}
 	end
 	_G.init_menu = init_menu
