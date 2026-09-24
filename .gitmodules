@@ -4,3 +4,6 @@
 [submodule "vendor/cunity"]
 	path = vendor/cunity
 	url = https://gitlab.com/cunity/cunit.git
+[submodule "vendor/sqlite"]
+	path = vendor/sqlite
+	url = https://github.com/sqlite/sqlite.git

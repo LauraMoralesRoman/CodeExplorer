@@ -26,6 +26,7 @@ setlocal cindent
 command! CMake !
 			\ cmake -B build -G Ninja
 			\ -DCMAKE_BUILD_TYPE=Debug
+            \ --toolchain=gcc-lld.cmake
 
 command! Build AsyncRun
 			\ cmake --build build

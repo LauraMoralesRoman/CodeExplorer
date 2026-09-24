@@ -6,8 +6,12 @@ set(CMAKE_C_STANDARD 23)
 set(CMAKE_C_STANDARD_REQUIRED ON)
 set(CMAKE_EXPORT_COMPILE_COMMANDS ON)
 
+# Libraries
 add_subdirectory("${CMAKE_SOURCE_DIR}/vendor/raylib")
 add_subdirectory("${CMAKE_SOURCE_DIR}/vendor/cunity")
+include("${CMAKE_SOURCE_DIR}/vendor/cmake/sqlite.cmake")
+
+###########
 
 file(GLOB_RECURSE SOURCES
 	CONFIGURE_DEPENDS "${CMAKE_SOURCE_DIR}/src/*.h"
@@ -43,7 +47,7 @@ foreach(TARGET ${TARGETS})
 endforeach()
 
 target_link_libraries("${PROJECT_NAME}" PRIVATE
-    raylib cslib
+    raylib cslib sqlite3
 )
 
 target_include_directories("${PROJECT_NAME}" PRIVATE
