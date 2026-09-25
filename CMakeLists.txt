@@ -32,13 +32,42 @@ set (TARGETS
 )
 
 foreach(TARGET ${TARGETS})
-	target_compile_options("${PROJECT_NAME}" PRIVATE
-		$<$<CONFIG:Debug>:-Wall -Wextra>
-		$<$<CONFIG:Debug>:-O0 -ggdb>
-		$<$<CONFIG:Debug>:-fsanitize=address>
-		$<$<CONFIG:Debug>:-fsanitize=undefined>
-		$<$<CONFIG:Release>:-O2 -flto=thin>
-	)
+    target_compile_options("${PROJECT_NAME}" PRIVATE
+        -Wall
+        -Wextra
+        -Wpedantic
+        -Wconversion
+        -Wsign-conversion
+        -Wshadow
+        -Wstrict-prototypes
+        -Wmissing-prototypes
+        -Wmissing-declarations
+        -Wold-style-definition
+        -Wformat=2
+        -Wundef
+        -Wvla
+        -Wswitch-enum
+        -Wswitch-default
+        -Wcast-qual
+        -Wcast-align
+        -Wpointer-arith
+        -Wwrite-strings
+        -Wdouble-promotion
+        -Wfloat-equal
+        -Wredundant-decls
+        -Wstrict-overflow=5
+        -Wnull-dereference
+        -Wimplicit-fallthrough
+        -Werror
+
+        $<$<CONFIG:Debug>:-O0>
+        $<$<CONFIG:Debug>:-ggdb>
+        $<$<CONFIG:Debug>:-fsanitize=address>
+        $<$<CONFIG:Debug>:-fsanitize=undefined>
+
+        $<$<CONFIG:Release>:-O2>
+        $<$<CONFIG:Release>:-flto=thin>
+)
 
 	target_link_options("${PROJECT_NAME}" PRIVATE
 		$<$<CONFIG:Debug>:-fsanitize=address>
